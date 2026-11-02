@@ -18,6 +18,10 @@
 #define DISPLAY_OLED       SSD1306    //    SH1106 // SSD1309  SH1106, OLED 1.3" I2C display commonly used. SSD1306 is a 0.96" OLED display.    Infreq
                                           //         The SSD1309 is often used on 1.54" or 2.3" I2C displays.
 
+#define STATUS_BUZZER       2000  // Frecuencia en Hz
+#define STATUS_BUZZER_PIN   18    // GPIO conectado al buzzer
+#define STATUS_BUZZER_DEFAULT ON
+                                      
 // ZWO ASI_MOUNT --------------------------------------------------------------------------------------------------------------------
 #define ASI_MOUNT         ON // ON or AM5 AM3  OFF
 #define ASI_MOUNT_PORT    4030   
@@ -48,7 +52,7 @@
 
 
 // Local Realt Timec
-#define LOCAL_RTC            DS3231 //    OFF, DS3231 (I2C,)  Option
+#define LOCAL_RTC            OFF//DS3231 //    OFF, DS3231 (I2C,)  Option
                                           //         Provides Date/Time
 
 

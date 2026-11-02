@@ -178,5 +178,4 @@
  src/userInterface/menus/../../libApp/status/Status.h \
  src/userInterface/menus/../../libApp/cmd/Cmd.h \
  src/userInterface/menus/../message/Message.h \
- src/userInterface/menus/../../lib/convert/Convert.h \
- src/userInterface/menus/../../libApp/rtc/rtc.h
+ src/userInterface/menus/../../lib/convert/Convert.h

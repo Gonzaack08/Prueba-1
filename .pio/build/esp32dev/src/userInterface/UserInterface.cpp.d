@@ -176,5 +176,4 @@
  src/userInterface/../lib/tasks/OnTask.h \
  src/userInterface/../libApp/st4Aux/St4Aux.h \
  src/userInterface/../catalogs/Catalog.h \
- src/userInterface/bitmaps/Bitmaps.h \
- src/userInterface/../libApp/rtc/rtc.h
+ src/userInterface/bitmaps/Bitmaps.h

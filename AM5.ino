@@ -32,6 +32,9 @@
 #define FirmwareVersionMinor  "01"
 #define FirmwareVersionPatch  "RH"
 
+#include "src/lib/sound/Sound.h"
+Sound sound;
+
 #include "src/Common.h"
 NVS nv;
 #include "src/lib/tasks/OnTask.h"
@@ -108,6 +111,8 @@ void setup(void) {
 
   userInterface.init(Version, pin, active, SERIAL_ONSTEP_BAUD_DEFAULT, static_cast<OLED>(DISPLAY_OLED));
 
+  sound.init();
+  sound.beep();
   
   #if WEATHER != OFF
     // get any BME280 or BMP280 ready
