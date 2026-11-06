@@ -19,7 +19,7 @@
                                           //         The SSD1309 is often used on 1.54" or 2.3" I2C displays.
 
 #define STATUS_BUZZER       2000  // Frecuencia en Hz
-#define STATUS_BUZZER_PIN   18    // GPIO conectado al buzzer
+#define STATUS_BUZZER_PIN   4     // GPIO conectado al buzzer
 #define STATUS_BUZZER_DEFAULT ON
                                       
 // ZWO ASI_MOUNT --------------------------------------------------------------------------------------------------------------------
