@@ -43,6 +43,9 @@ You can review the SHC capabilities in its [User Manual](https://onstep.groups.i
 # Documentation
 You can review recommended hardware and flashing instructions in the [Smart Hand Controller](https://groups.io/g/onstep/wiki/Smart-Hand-Controller) Wiki.
 
+# Local display and button test
+Set `SHC_LOCAL_TEST_MODE` in `Config.h` to `ON` to display a local test screen and verify the keypad without connecting an OnStep controller. The screen reports the most recently pressed button. Set it to `OFF` to restore normal controller connection and operation.
+
 # License
 The Smart Hand Controller is open source free software, licensed under the GPL.
 

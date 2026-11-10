@@ -102,8 +102,8 @@ void UI::init(const char version[], const int pin[7], const int active[7], const
   if (model == OLED_SSD1309_4W_SW_SPI) display = new U8G2_EXT_SSD1309_128X64_NONAME_F_4W_SW_SPI(U8G2_R0); else
   if (model == OLED_SSD1309_4W_HW_SPI) display = new U8G2_EXT_SSD1309_128X64_NONAME_F_4W_HW_SPI(U8G2_R0);
 
+  display->setI2CAddress(0x3D << 1);
   display->begin();
-  display->setI2CAddress(0x3D);
   display->setContrast(UI::Contrast[displaySettings.maxContrastSelection]);
   display->setFont(LF_STANDARD);
   message.init(display);
@@ -112,33 +112,61 @@ void UI::init(const char version[], const int pin[7], const int active[7], const
   drawIntro();
   delay(2000);
 
-  // get guide commands ready, use single byte for SerialST4 or normal LX200 otherwise
-  // SerialST4 always returns 0 "may block", Teensy and ESP32 always return > 0
-  if (SERIAL_ONSTEP.availableForWrite() == 0) {
-    strcpy(ccMe, "\x0e"); // 14
-    strcpy(ccMw, "\x0f"); // 15
-    strcpy(ccMn, "\x10"); // 16
-    strcpy(ccMs, "\x11"); // 17
-    strcpy(ccQe, "\x12"); // 18
-    strcpy(ccQw, "\x13"); // 19
-    strcpy(ccQn, "\x14"); // 20
-    strcpy(ccQs, "\x15"); // 21
-  } else {
-    strcpy(ccMe, ":Me#");
-    strcpy(ccMw, ":Mw#");
-    strcpy(ccMn, ":Mn#");
-    strcpy(ccMs, ":Ms#");
-    strcpy(ccQe, ":Qe#");
-    strcpy(ccQw, ":Qw#");
-    strcpy(ccQn, ":Qn#");
-    strcpy(ccQs, ":Qs#");
-  }
+  #if SHC_LOCAL_TEST_MODE != ON
+    // get guide commands ready, use single byte for SerialST4 or normal LX200 otherwise
+    // SerialST4 always returns 0 "may block", Teensy and ESP32 always return > 0
+    if (SERIAL_ONSTEP.availableForWrite() == 0) {
+      strcpy(ccMe, "\x0e"); // 14
+      strcpy(ccMw, "\x0f"); // 15
+      strcpy(ccMn, "\x10"); // 16
+      strcpy(ccMs, "\x11"); // 17
+      strcpy(ccQe, "\x12"); // 18
+      strcpy(ccQw, "\x13"); // 19
+      strcpy(ccQn, "\x14"); // 20
+      strcpy(ccQs, "\x15"); // 21
+    } else {
+      strcpy(ccMe, ":Me#");
+      strcpy(ccMw, ":Mw#");
+      strcpy(ccMn, ":Mn#");
+      strcpy(ccMs, ":Ms#");
+      strcpy(ccQe, ":Qe#");
+      strcpy(ccQw, ":Qw#");
+      strcpy(ccQn, ":Qn#");
+      strcpy(ccQs, ":Qs#");
+    }
+  #endif
 
   VF("MSG: UserInterface, start UI update task (rate 30ms priority 6)... ");
   if (tasks.add(30, 0, true, 6, updateWrapper, "UIupd")) { VLF("success"); } else { VLF("FAILED!"); }
 }
 
 void UI::poll() {
+  #if SHC_LOCAL_TEST_MODE == ON
+    static char lastButton[8] = "None";
+    if (keyPad.anyPressed()) {
+      if (keyPad.shift->wasPressed(true)) strcpy(lastButton, "Shift");
+      else if (keyPad.n->wasPressed(true)) strcpy(lastButton, "N");
+      else if (keyPad.s->wasPressed(true)) strcpy(lastButton, "S");
+      else if (keyPad.e->wasPressed(true)) strcpy(lastButton, "E");
+      else if (keyPad.w->wasPressed(true)) strcpy(lastButton, "W");
+      else if (keyPad.F->wasPressed(true)) strcpy(lastButton, "F");
+      else if (keyPad.f->wasPressed(true)) strcpy(lastButton, "f");
+      keyPad.clearAllPressed();
+    }
+
+    display->setFont(LF_STANDARD);
+    display->firstPage();
+    do {
+      display->drawStr(0, 10, "SHC LOCAL TEST");
+      display->drawStr(0, 23, "N / S / E / W");
+      display->drawStr(0, 36, "SHIFT / F / f");
+      display->drawStr(0, 49, "Last:");
+      display->drawStr(36, 49, lastButton);
+      display->drawStr(0, 60, "No OnStep needed");
+    } while (display->nextPage());
+    return;
+  #endif
+
   // -----------------------------------------------------------------------------------------------------
   // connect/reconnect
   static unsigned long lastConnectedTime = 0;
