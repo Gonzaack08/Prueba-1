@@ -158,4 +158,5 @@
  src/lib/sound/../../lib/debug/Debug.h \
  src/lib/sound/../../lib/serial/Serial_ST4_Slave.h \
  src/lib/sound/../../lib/serial/Serial_IP_Wifi_Client.h \
- src/lib/sound/../../lib/serial/../wifi/WifiManager.h
+ src/lib/sound/../../lib/serial/../wifi/WifiManager.h \
+ src/lib/sound/../tasks/OnTask.h

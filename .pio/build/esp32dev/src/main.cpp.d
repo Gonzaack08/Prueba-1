@@ -1,5 +1,5 @@
 .pio/build/esp32dev/src/main.cpp.o: src/main.cpp src/../AM5.ino \
- src/../src/Common.h \
+ src/../src/lib/sound/Sound.h src/../src/lib/sound/../../Common.h \
  C:/Users/teg1/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
  C:/Users/teg1/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp_arduino_version.h \
  C:/Users/teg1/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/freertos/include/freertos/FreeRTOS.h \
@@ -134,26 +134,35 @@
  C:/Users/teg1/.platformio/packages/framework-arduinoespressif32/tools/sdk/esp32/include/esp_hw_support/include/soc/esp32/spiram.h \
  C:/Users/teg1/.platformio/packages/framework-arduinoespressif32/cores/esp32/io_pin_remap.h \
  C:/Users/teg1/.platformio/packages/framework-arduinoespressif32/cores/esp32/Arduino.h \
- src/../src/Constants.h src/../src/lib/Constants.h \
- src/../src/locales/Locales.h src/../src/../Config.h \
- src/../src/../Extended.config.h src/../src/Config.defaults.h \
- src/../src/HAL/HAL.h src/../src/HAL/HAL_ESP32.h \
+ src/../src/lib/sound/../../Constants.h \
+ src/../src/lib/sound/../../lib/Constants.h \
+ src/../src/lib/sound/../../locales/Locales.h \
+ src/../src/lib/sound/../../../Config.h \
+ src/../src/lib/sound/../../../Extended.config.h \
+ src/../src/lib/sound/../../Config.defaults.h \
+ src/../src/lib/sound/../../HAL/HAL.h \
+ src/../src/lib/sound/../../HAL/HAL_ESP32.h \
  C:/Users/teg1/.platformio/packages/framework-arduinoespressif32/libraries/Wire/src/Wire.h \
  C:/Users/teg1/.platformio/packages/framework-arduinoespressif32/cores/esp32/esp32-hal.h \
- src/../src/HAL/../lib/nv/NV_ESP.h src/../src/HAL/../lib/nv/NV.h \
+ src/../src/lib/sound/../../HAL/../lib/nv/NV_ESP.h \
+ src/../src/lib/sound/../../HAL/../lib/nv/NV.h \
  C:/Users/teg1/.platformio/packages/framework-arduinoespressif32/libraries/EEPROM/src/EEPROM.h \
- src/../src/lib/Macros.h src/../src/pinmaps/Models.h \
- src/../src/pinmaps/../../Config.h \
- src/../src/pinmaps/../../Extended.config.h \
- src/../src/pinmaps/../locales/Locale.h \
- src/../src/pinmaps/../locales/../../Config.h \
- src/../src/pinmaps/../locales/../../Extended.config.h \
- src/../src/pinmaps/../locales/Strings_en.h \
- src/../src/pinmaps/Pins.Esp32.h src/../src/pinmaps/Pins.Esp8266.h \
- src/../src/pinmaps/Pins.M0.h src/../src/pinmaps/Pins.Teensy.h \
- src/../src/lib/debug/Debug.h src/../src/lib/serial/Serial_ST4_Slave.h \
- src/../src/lib/serial/Serial_IP_Wifi_Client.h \
- src/../src/lib/serial/../wifi/WifiManager.h \
+ src/../src/lib/sound/../../lib/Macros.h \
+ src/../src/lib/sound/../../pinmaps/Models.h \
+ src/../src/lib/sound/../../pinmaps/../../Config.h \
+ src/../src/lib/sound/../../pinmaps/../../Extended.config.h \
+ src/../src/lib/sound/../../pinmaps/../locales/Locale.h \
+ src/../src/lib/sound/../../pinmaps/../locales/../../Config.h \
+ src/../src/lib/sound/../../pinmaps/../locales/../../Extended.config.h \
+ src/../src/lib/sound/../../pinmaps/../locales/Strings_en.h \
+ src/../src/lib/sound/../../pinmaps/Pins.Esp32.h \
+ src/../src/lib/sound/../../pinmaps/Pins.Esp8266.h \
+ src/../src/lib/sound/../../pinmaps/Pins.M0.h \
+ src/../src/lib/sound/../../pinmaps/Pins.Teensy.h \
+ src/../src/lib/sound/../../lib/debug/Debug.h \
+ src/../src/lib/sound/../../lib/serial/Serial_ST4_Slave.h \
+ src/../src/lib/sound/../../lib/serial/Serial_IP_Wifi_Client.h \
+ src/../src/lib/sound/../../lib/serial/../wifi/WifiManager.h \
  src/../src/lib/tasks/OnTask.h src/../src/lib/convert/Convert.h \
  src/../src/userInterface/UserInterface.h \
  src/../src/userInterface/../libApp/keyPad/KeyPad.h \

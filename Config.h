@@ -27,15 +27,15 @@
 #define ASI_MOUNT_PORT    4030   
 
 // SERIAL PORTS --------------------------------------------------------------------------------------------------------------------
-#define SERIAL_ONSTEP Serial1
+#define SERIAL_ONSTEP Serial2
 #define SERIAL_ONSTEP_BAUD_DEFAULT   9600 //   9600, Common baud rates for these parameters are 9600,19200,57600,115200.      Infreq
                                           //         Only used for async serial communication with OnStep.
 // Override encoder serial bridge baud rate (change if your encoder bridge uses a different speed)
 #ifndef SERIAL_ENCODER_BAUD
 #define SERIAL_ENCODER_BAUD 115200
 #endif
-#define SERIAL_ONSTEP_RX 16
-#define SERIAL_ONSTEP_TX 17
+#define SERIAL_ONSTEP_RX 27
+#define SERIAL_ONSTEP_TX 26
 
 // USER FEEDBACK -------------------------------------------------------------------------------------------------------------------
 #define UTILITY_LIGHT                 OFF //    OFF, n. Where n=0..255 (0..100%) activates feature sets default brightness.   Adjust
@@ -61,7 +61,7 @@
 #define DISPLAY_WRAP_MENUS            ON //    OFF, ON allows menus to wrap so moving past bottom returns to top, etc.       Option
 #define DISPLAY_24HR_TIME             ON //     ON, OFF to use 12 hour format for entering time.                             Option
 #define DISPLAY_CONTRAST_DEFAULT       1 //      1, Use 0 to 3 for Min, Low, High, Max respectively.                         Option
-#define SHC_LOCAL_TEST_MODE           ON //    ON to test display/buttons without an OnStep controller; set OFF for normal operation.
+#define SHC_LOCAL_TEST_MODE           OFF //    ON to test display/buttons without an OnStep controller; set OFF for normal operation.
 
 // KEYPAD --------------------------------------------------------------------------------------------------------------------------
 #define KEYPAD_JOYSTICK_ANALOG        OFF //    OFF, JS1 for Jerry's analog joystick                                          Option
